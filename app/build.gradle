@@ -39,7 +39,7 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -53,7 +53,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttps:4.9.0'
 
     //Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
 
     //Coroutines Lifecycle Scopes
@@ -70,11 +70,3 @@ dependencies {
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.8'
 }
-
-
-
-
-
-
-
-
