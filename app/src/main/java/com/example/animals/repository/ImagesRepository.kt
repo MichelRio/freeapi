@@ -1,10 +1,9 @@
 package com.example.animals.repository
 
-import com.example.animals.services.ApiService
-import javax.inject.Inject
+import com.example.animals.models.ImagesModelItem
+import retrofit2.Response
 
-class ImagesRepository
-@Inject
-constructor(private val apiService: ApiService){
-    suspend fun getImages() = apiService.getImagesService()
+interface
+ImagesRepository {
+    suspend fun getImages(): Response<List<ImagesModelItem>>
 }

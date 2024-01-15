@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Animals</string>
+
+    <string name="dialog_title">Detalhes de raça!</string>
+    <string name="dialog_positive_button">Bom garoto!</string>
+    <string name="dialog_negative_button">Quieto!</string>
 </resources>

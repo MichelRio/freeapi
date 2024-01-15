@@ -7,11 +7,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.animals.R
 import com.example.animals.databinding.ImageItemBinding
-import com.example.animals.models.ImagesModel
 import com.example.animals.models.ImagesModelItem
 import com.squareup.picasso.Picasso
 
 class ImagesAdapter: RecyclerView.Adapter<ImagesAdapter.ImagesViewHolder>() {
+
+    var onItemClick: ((ImagesModelItem) -> Unit)? = null
 
     inner class ImagesViewHolder (val binding: ImageItemBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -55,6 +56,10 @@ class ImagesAdapter: RecyclerView.Adapter<ImagesAdapter.ImagesViewHolder>() {
                 .placeholder(R.drawable.icon_placeholder)
                 .error(R.drawable.icon_error)
                 .into(ivImage)
+
+            ivImage.setOnClickListener(){
+                onItemClick?.invoke(imageList[position])
+            }
         }
     }
 }

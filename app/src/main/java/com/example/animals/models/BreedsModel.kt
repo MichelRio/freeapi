@@ -1,8 +1,6 @@
 package com.example.animals.models
 
-class BreedResponse : ArrayList<BreedResponseItem>()
-
-data class BreedResponseItem(
+data class BreedModelItem(
     var adaptability: Int,
     var affection_level: Int,
     var alt_names: String,
