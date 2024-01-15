@@ -46,20 +46,25 @@ class MainActivity : AppCompatActivity() {
         }
 
         imagesAdapter.onItemClick = { item ->
-            Toast.makeText(this, item.id, Toast.LENGTH_LONG).show()
-            Log.d("::MainActivity","imagesAdapter.onItemClick ${item.id}")
-            breedsViewModel.loadDataBreeds(item.id)
+            val position = item.toString()
+            Log.d("::MainActivity","imagesAdapter.onItemClick ${position}")
+            breedsViewModel.loadDataBreeds(position)
         }
 
         breedsViewModel.responseBreeds.observe(this@MainActivity) { detailBreed ->
-            showDialogDetails(detailBreed.toString())
+
+            val message = "Name: ${detailBreed.name} \n\n" +
+                    "Temperament: ${detailBreed.temperament} \n\n"+
+                    "Bred for: ${detailBreed.bred_for} "
+
+            showDialogDetails(message)
         }
     }
 
-    private fun showDialogDetails(details: String?) {
+    private fun showDialogDetails(message: String?) {
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.dialog_title)
-            .setMessage(details ?: "Au! au! - Tivemos uma falha")
+            .setMessage(message ?: "Au! au! - Infelizmente não temos detalhes.")
             .setPositiveButton(R.string.dialog_positive_button) { dialog, _ -> dialog.dismiss() }
             .setNegativeButton(R.string.dialog_negative_button) { dialog, _ -> dialog.dismiss() }
             .show()

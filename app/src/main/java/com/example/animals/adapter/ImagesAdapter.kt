@@ -12,7 +12,8 @@ import com.squareup.picasso.Picasso
 
 class ImagesAdapter: RecyclerView.Adapter<ImagesAdapter.ImagesViewHolder>() {
 
-    var onItemClick: ((ImagesModelItem) -> Unit)? = null
+//    var onItemClick: ((ImagesModelItem) -> Unit)? = null
+    var onItemClick: ((Int) -> Unit)? = null
 
     inner class ImagesViewHolder (val binding: ImageItemBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -58,7 +59,11 @@ class ImagesAdapter: RecyclerView.Adapter<ImagesAdapter.ImagesViewHolder>() {
                 .into(ivImage)
 
             ivImage.setOnClickListener(){
-                onItemClick?.invoke(imageList[position])
+                var id = position
+                if(position == 0) {id = 99}
+                println("teste>>> $position")
+//                onItemClick?.invoke(imageList[position])
+                onItemClick?.invoke(id)
             }
         }
     }
